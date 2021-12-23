@@ -1,0 +1,3 @@
+"0","```scatterplot(political_stability~Inflation, data=data_r_final,xlab=Inflation, ylab=political_stability, main=""Regression lineaire"", RegLine=FALSE,"
+"2","Error: attempt to use zero-length variable name
+"

@@ -1,0 +1,45 @@
+---
+title: "Rapport indicateur economique"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Rapport pour les indicateurs economiques par rapport a l'instabilite polique.
+In economics, an indicator is a statistic constructed to measure certain dimensions of economic activity as objectively as possible. Their evolution as well as their correlations with other quantities are frequently analyzed using econometric methods. Thus, according to this definition, the economic indicators of Haiti that we have chosen are: inflation, GDP, imports, exports, exchange rate.
+
+The methodology we used is an economic model, and to achieve this model on R, we used several libraries namely:
+library(ggplot2)
+library(readxl)
+library(car)
+library(carData)
+
+Then, after we imported the data that we put on the excel file. The imported data we made the linear regression allowing us to better analyze these data statistically. When inflation increases by 1 the political instability varies by 0.007160, when the gdp increases by 1 the political instability varies by o.008971, and when the exchange rate increases by 1 the political instability varies by 4.470895.
+Thus, we can say that it is the exchange rate that has a greater impact on political instability. Thus, political instability favors an increase in the exchange rate.
+
+```{r}
+data_r_final <- read.csv("C:/Users/Enica Danielle Orné/OneDrive/Desktop/R final/EDO/data_r_final.csv")
+print(data_r_final)
+dim(data_r_final)
+attach(data_r_final)
+```
+
+
+```{r}
+#Regression Lineaire
+REG <-lm(formula=political_stability~Inflation+GDP+market_exchange, data=data_r_final)
+summary(REG)
+confint.default(REG)
+attributes(REG)
+REG$coefficients
+```
+
+
+```{r}
+```scatterplot(political_stability~Inflation, data=data_r_final,xlab=Inflation, ylab=political_stability, main="Regression lineaire", RegLine=FALSE,
+            ellipse=TRUE, smooth=FALSE, grid=TRUE)
+summary(REG)
+confint.default(REG)
+

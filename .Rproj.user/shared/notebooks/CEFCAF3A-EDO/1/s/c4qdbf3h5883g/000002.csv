@@ -1,0 +1,10 @@
+"0","Mut<-read_excel(""C:/Users/Enica Danielle Orné/OneDrive/Desktop/R final/EDO/data_r_final.xlsx"")"
+"2","New names:
+* `` -> ...8
+* `` -> ...9
+* `` -> ...10
+* `` -> ...11
+* `` -> ...12
+* ...
+"
+"0","pie(x=Mut$Inflation,labels = Mut$political_stability, col=rainbow(9))"
